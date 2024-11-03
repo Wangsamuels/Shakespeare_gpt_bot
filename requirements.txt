@@ -3,3 +3,7 @@ tensorflow
 streamlit
 gdown
 requests
+plotly.express
+tiktoken
+pandas
+typing
