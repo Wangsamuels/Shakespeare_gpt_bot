@@ -17,7 +17,6 @@ import tiktoken
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {DEVICE}")
 
-# Model architecture classes (CausalSelfAttention, MLP, Block remain the same)
 class CausalSelfAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
@@ -162,7 +161,6 @@ class ShakespeareDataset:
                     self.text = f.read()
                 print("Successfully loaded from local file")
             else:
-                # Fallback to URL if local file doesn't exist
                 shakespeare_url = "https://raw.githubusercontent.com/karpathy/build-nanogpt/master/input.txt"
                 headers = {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -171,7 +169,6 @@ class ShakespeareDataset:
                 response.raise_for_status()
                 self.text = response.text
                 
-                # Save the file locally for future use
                 with open('shakespeare.txt', 'w', encoding='utf-8') as f:
                     f.write(self.text)
                 print("Successfully loaded from URL and saved locally")
