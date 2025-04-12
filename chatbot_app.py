@@ -154,7 +154,7 @@ def main():
             st.session_state.messages.append({"role": "assistant", "content": response})
             
             # Rerun to update chat display
-            st.experimental_rerun()
+            st.rerun()
             
     elif analysis_option == "Play Statistics":
         st.markdown("### Play Statistics")
